@@ -30,7 +30,7 @@ RUN chmod +x /etc/mysql.sh
 
 COPY prestashop.zip /var/www/html/
 
-COPY adminer.php /var/www/html
+COPY adminer.php /var/www/html/
 
 RUN cd /var/www/html && unzip prestashop.zip 
 
