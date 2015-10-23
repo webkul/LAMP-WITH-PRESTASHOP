@@ -1,6 +1,8 @@
 From ubuntu:14.04
 
-RUN apt-get update
+MAINTAINER Prashant Arora <prashant089@webkul.com>
+
+RUN apt-get -y update
 
 RUN apt-get -y install lamp-server^
 
@@ -16,7 +18,7 @@ RUN sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysq
 
 RUN apt-get install -y openssh-server
 
-RUN mkdir -p /var/run/sshd 
+RUN mkdir -p /var/run/sshd
 
 RUN apt-get install -y supervisor
 
@@ -30,9 +32,13 @@ RUN chmod +x /etc/mysql.sh
 
 COPY prestashop.zip /var/www/html/
 
-COPY adminer.php /var/www/html/
-
 RUN cd /var/www/html && unzip prestashop.zip 
+
+RUN rm -rf /var/www/html/prestashop.zip
+
+RUN rm /var/www/html/index.html
+
+COPY adminer.php /var/www/html/prestashop/
 
 RUN cd /var/www/html && chown -R www-data: prestashop
 
