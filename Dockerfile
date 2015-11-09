@@ -1,6 +1,6 @@
 From ubuntu:14.04
 
-MAINTAINER Prashant Arora <prashant089@webkul.com> <prashantarora90@gmail.com>
+MAINTAINER Prashant Arora <prashant089@webkul.com>
 
 RUN apt-get -y update
 
